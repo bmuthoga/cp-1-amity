@@ -33,7 +33,7 @@ class Amity_Test(unittest.TestCase):
         new_count_persons = len(Amity.all_people)
         self.assertEqual(new_count_persons, current_count_persons+1)
 
-    def test_add_person_invalid_name(self):
+    def test_add_person_invalid_job_type(self):
         self.assertRaises(ValueError, Amity.add_person, "Muthoga", "No", "STAFFF")
 
 """
