@@ -49,6 +49,7 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+cover/
 
 # Translations
 *.mo
@@ -61,6 +62,9 @@ local_settings.py
 # Flask stuff:
 instance/
 .webassets-cache
+
+# Database directory:
+databases/
 
 # Scrapy stuff:
 .scrapy
