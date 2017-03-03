@@ -142,12 +142,13 @@ class Amity(object):
             if len(self.living_space_allocations[room]) < self.room_data[room][1]:
                 vacant_living_spaces.append(room)
 
-        if vacant_living_spaces:
+        if fellow_name not in self.all_people:
+            return "{} does not exist." .format(fellow_name.upper())
 
-            if fellow_name not in self.all_people:
-                return "{} does not exist." .format(fellow_name.upper())
+        else:
 
-            else:
+            if vacant_living_spaces:
+
                 for room in self.living_space_allocations:
                     if fellow_name.upper() in self.living_space_allocations[room]:
                         return "{} already allocated to a living space." \
@@ -162,9 +163,9 @@ class Amity(object):
 
                 return "{} allocated to {}" .format(fellow_name.upper(), random_living_space)
 
-        else:
-            self.unallocated_living_spaces.append(fellow_name.upper())
-            return "No vacant living spaces at the moment."
+            else:
+                self.unallocated_living_spaces.append(fellow_name.upper())
+                return "No vacant living spaces at the moment."
 
     def allocate_office(self, person_name):
         """This method allocates an office to a person."""
@@ -176,12 +177,12 @@ class Amity(object):
             if len(self.office_allocations[room]) < self.room_data[room][1]:
                 vacant_offices.append(room)
 
-        if vacant_offices:
+        if person_name not in self.all_people:
+            return "{} does not exist." .format(person_name.upper())
 
-            if person_name not in self.all_people:
-                return "{} does not exist." .format(person_name.upper())
+        else:
 
-            else:
+            if vacant_offices:
 
                 for room in self.office_allocations:
                     if person_name.upper() in self.office_allocations[room]:
@@ -196,9 +197,9 @@ class Amity(object):
 
                 return "{} allocated to {}" .format(person_name.upper(), random_office)
 
-        else:
-            self.unallocated_offices.append(person_name.upper())
-            return "No vacant offices at the moment."
+            else:
+                self.unallocated_offices.append(person_name.upper())
+                return "No vacant offices at the moment."
 
     def reallocate_person(self, person_id, room_name):
         """This method reallocates a person to another specified room."""
