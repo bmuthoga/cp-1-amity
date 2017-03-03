@@ -1,6 +1,6 @@
 import os
-import random
 import sqlalchemy
+import random
 
 from termcolor import colored, cprint
 

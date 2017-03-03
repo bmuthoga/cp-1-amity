@@ -11,7 +11,7 @@ Usage:
     interface.py load_people [--o=filename]
     interface.py print_specific_room_allocations <room_name>
     interface.py load_state <db_name>
-    interface.py print_rooms 
+    interface.py print_rooms
     interface.py print_fellows
     interface.py print_staff
     interface.py print_all_people
@@ -28,18 +28,21 @@ Arguments:
     <want_accomodation> can either be yes|no
     <database_name> The name of the database
     [--o=filename] The name of the text file to write to or read from
-    
+
 Options:
     -h , --help , Show this screen and exit
 """
 
 import cmd
 import os
+
 from docopt import docopt, DocoptExit
+from pyfiglet import Figlet
+from termcolor import colored, cprint
+
+from database_models import create_db
 from models import amity
 from sessions import DatabaseSessions
-from database_models import create_db
-from termcolor import colored, cprint
 
 
 def docopt_cmd(func):
@@ -76,7 +79,8 @@ def docopt_cmd(func):
 
 def definition():
     cprint("#" * 100, 'blue')
-    cprint('''\t\t\t\t\tAMITY ALLOCATION''', 'blue')
+    font_property = Figlet(font='slant')
+    cprint(font_property.renderText('AMITY ALLOCATION'), 'blue')
     cprint("#" * 100, 'blue')
     cprint("This program is supposed to help in the management of the amity facility their events",\
              "blue")
