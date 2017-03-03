@@ -104,4 +104,7 @@ ENV/
 # .vscode
 .vscode/
 
+# Sample readme
+READsME.md
+
 # End of https://www.gitignore.io/api/python
